@@ -141,8 +141,8 @@ fetch(shopping_api)
       let singleData = fetchedData[i];
       let titleName = singleData.title;
 
-      if (titleName.length > 20) {
-        let slicedName = titleName.slice(0, 19);
+      if (titleName.length > 17) {
+        let slicedName = titleName.slice(0, 15);
         slicedName += "...";
         data += `
         <div class="shopping-group1-items">
