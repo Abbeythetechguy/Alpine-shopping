@@ -15,7 +15,7 @@
     <section id="search-overlay">
         <div id="search-overlay-items">
             <form action="" method="get">
-                <input type="search" name="search" id="search-bar" onkeyup="searchItem()" placeholder="Search">
+                <input type="search" name="search" id="search-bar" placeholder="Search">
                 <span id="search-close"><i class="fa-solid fa-close"></i>Close</span>
             </form>
             <div id="searched-items">
@@ -47,8 +47,8 @@
         <nav>
             <span id="search-icon"><i class="fa-solid fa-magnifying-glass"></i></span>
             <span>
-                <a href="#">Cart <img src="./Alpine images/Vector.png" alt=""></a>
-                <a href="">Login</a>
+                <a href="#" id="cart"><p>Cart</p><img src="./Alpine images/Vector.png" alt=""></a>
+                <a href="" id="login">Login</a>
             </span>
         </nav>
     </header>
@@ -85,6 +85,20 @@
                 <div class="shopping-group1-loading"></div>
                 <div class="shopping-group1-loading"></div>
                 <div class="shopping-group1-loading"></div>
+                <div class="shopping-group1-items">
+                    <button><i class='fa-solid fa-heart fa-2x'></i></button>
+                    <img src=${singleData.image} alt="" class="shopping-img">
+                    <h2>${slicedName}</h2>
+                    <p class="price">$ ${singleData.price}</p>
+                    <a href="#" class='addtocart-btn'>Add to Cart</a>
+                </div>
+                <div class="shopping-group1-items">
+                    <button><i class='fa-solid fa-heart fa-2x'></i></button>
+                    <img src=${singleData.image} alt="" class="shopping-img">
+                    <h2>${slicedName}</h2>
+                    <p class="price">$ ${singleData.price}</p>
+                    <a href="#" class='addtocart-btn'>Add to Cart</a>
+                </div>
             </div>
         </section>
     </main>

@@ -57,7 +57,7 @@ body #search-overlay #search-overlay-items #searched-items {
 body #search-overlay #search-overlay-items #searched-items .search-item-loader {
   width: 45px;
   height: 60px;
-  --c:linear-gradient(#ffffff 0 0);
+  --c: linear-gradient(#ffffff 0 0);
   background: var(--c) 0% 100%, var(--c) 50% 100%, var(--c) 100% 100%;
   background-size: 9px 65%;
   background-repeat: no-repeat;
@@ -382,6 +382,7 @@ body main .shopping-sec .shopping-group1 {
   gap: 10px;
 }
 body main .shopping-sec .shopping-group1 .shopping-group1-items, body main .shopping-sec .shopping-group1 .shopping-group1-loading {
+  cursor: pointer;
   flex-shrink: 0;
   border-radius: 10px;
   width: 289px;
@@ -392,8 +393,11 @@ body main .shopping-sec .shopping-group1 .shopping-group1-items, body main .shop
   text-align: center;
   display: flex;
   flex-direction: column;
+  align-items: center;
   position: relative;
   z-index: -1;
+  text-decoration: none;
+  color: black;
 }
 body main .shopping-sec .shopping-group1 .shopping-group1-items button, body main .shopping-sec .shopping-group1 .shopping-group1-loading button {
   color: white;
@@ -413,7 +417,7 @@ body main .shopping-sec .shopping-group1 .shopping-group1-items .price, body mai
   color: rgb(183, 6, 6);
   margin: 18px 0;
 }
-body main .shopping-sec .shopping-group1 .shopping-group1-items a, body main .shopping-sec .shopping-group1 .shopping-group1-loading a {
+body main .shopping-sec .shopping-group1 .shopping-group1-items .addtocart-btn, body main .shopping-sec .shopping-group1 .shopping-group1-loading .addtocart-btn {
   text-decoration: none;
   height: 46px;
   border: 1px solid black;
@@ -421,7 +425,7 @@ body main .shopping-sec .shopping-group1 .shopping-group1-items a, body main .sh
   padding: 10px 50px;
   color: black;
 }
-body main .shopping-sec .shopping-group1 .shopping-group1-items a:hover, body main .shopping-sec .shopping-group1 .shopping-group1-loading a:hover {
+body main .shopping-sec .shopping-group1 .shopping-group1-items .addtocart-btn:hover, body main .shopping-sec .shopping-group1 .shopping-group1-loading .addtocart-btn:hover {
   background-color: rgb(183, 6, 6);
 }
 body main .shopping-sec .shopping-group1 .shopping-group1-items .shopping-img, body main .shopping-sec .shopping-group1 .shopping-group1-loading .shopping-img {
@@ -508,7 +512,13 @@ body main .shopping-sec .shopping-group1 .shopping-group1-loading {
     width: 35px;
     transform: rotate(-45deg) translate(7px, -11px);
   }
-  body header nav span {
+  body header nav span #cart {
+    display: flex;
+  }
+  body header nav span #cart p {
+    display: none;
+  }
+  body header nav span #login {
     display: none;
   }
   body header nav form #search-bar {
@@ -561,7 +571,6 @@ body main .shopping-sec .shopping-group1 .shopping-group1-loading {
   body main .top-selling-items .top-selling-items-flex-container {
     display: flex;
     gap: 10px;
-    overflow-x: scroll;
   }
   body main .top-selling-items .top-selling-items-flex-container .top-selling-items-flex-items {
     width: 200px;
@@ -591,7 +600,7 @@ body main .shopping-sec .shopping-group1 .shopping-group1-loading {
     transition: 0.3s;
   }
   body main .shopping-sec {
-    padding: 0 20px;
+    padding: 0 10px;
   }
   body main .shopping-sec span {
     margin: 34px 0;
@@ -599,11 +608,12 @@ body main .shopping-sec .shopping-group1 .shopping-group1-loading {
   body main .shopping-sec .shopping-group1 {
     display: grid;
     grid-template-columns: auto auto;
-    justify-content: space-between;
+    justify-content: center;
   }
   body main .shopping-sec .shopping-group1 .shopping-group1-items, body main .shopping-sec .shopping-group1 .shopping-group1-loading {
+    align-items: center;
     width: 180px;
-    height: 298px;
+    height: 278px;
     margin: 0 5px;
     margin-bottom: 20px;
     background-color: #d6d4d4;
@@ -622,18 +632,17 @@ body main .shopping-sec .shopping-group1 .shopping-group1-loading {
     margin: 5px 0;
     font-size: 16px;
   }
-  body main .shopping-sec .shopping-group1 .shopping-group1-items a, body main .shopping-sec .shopping-group1 .shopping-group1-loading a {
+  body main .shopping-sec .shopping-group1 .shopping-group1-items .addtocart-btn, body main .shopping-sec .shopping-group1 .shopping-group1-loading .addtocart-btn {
     text-decoration: none;
-    height: 26px;
-    border: 1px solid black;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 10px 25px;
+    width: 90%;
+    height: 36px;
+    padding: 10px 35px;
     color: black;
     position: absolute;
-    bottom: 5px;
-    left: 25%;
+    bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   body main .shopping-sec .shopping-group1 .shopping-group1-items .shopping-img, body main .shopping-sec .shopping-group1 .shopping-group1-loading .shopping-img {
     width: 164px;

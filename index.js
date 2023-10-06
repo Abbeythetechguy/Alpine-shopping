@@ -27,14 +27,6 @@ function showHamb() {
   }
 }
 
-document
-  .querySelector("#search-icon")
-  .addEventListener("click", showSearchInput);
-function showSearchInput() {
-  console.log("clicked");
-  document.querySelector("#search-bar").style.display = "block";
-}
-
 const loader = document.querySelector("#loading");
 
 function hideLoader() {
@@ -154,7 +146,7 @@ fetch(shopping_api)
           <img src=${singleData.image} alt="" class="shopping-img">
           <h2>${slicedName}</h2>
           <p class="price">$ ${singleData.price}</p>
-          <a href="#">Order</a>
+          <a href="#" class='addtocart-btn'>Add to Cart</a>
         </div>
   
         `;
@@ -165,7 +157,7 @@ fetch(shopping_api)
           <img src=${singleData.image} alt="" class="shopping-img">
           <h2>${titleName}</h2>
           <p class="price">$ ${singleData.price}</p>
-          <a href="#">Order</a>
+          <a href="#" class='addtocart-btn'>Add to Cart</a>
         </div>
   
         `;
@@ -184,80 +176,93 @@ fetch(shopping_api)
 // ..........................
 
 //This is for the search
+let search = {
+  searchIcon: document.querySelector("#search-icon"),
+  searchModal: document.querySelector("#search-overlay"),
+  searchLoader: document.querySelector(".search-item-loader"),
+  searchedItems: document.querySelector("#searched-items"),
+  searchClose: document.querySelector("#search-close"),
+  searchBarInput: document.getElementById("search-bar"),
+};
 
-let searchModal = document.querySelector("#search-overlay");
+search.searchIcon.addEventListener("click", showSearchInput);
+function showSearchInput() {
+  search.searchBarInput.style.display = "block";
+}
 
-document
-  .querySelector("#search-icon")
-  .addEventListener("click", showSearchModal);
+search.searchIcon.addEventListener("click", showSearchModal);
 function showSearchModal() {
-  searchModal.style.display = "block";
-  displaySearchLoader()
-}
-document
-  .querySelector("#search-close")
-  .addEventListener("click", closeSearchModal);
-function closeSearchModal() {
-  searchModal.style.display = "none";
+  search.searchModal.style.display = "block";
+  hideSearchLoader();
 }
 
+search.searchClose.addEventListener("click", closeSearchModal);
+function closeSearchModal() {
+  search.searchModal.style.display = "none";
+}
+
+// To close modal when you click outside the modal
 window.onclick = function (event) {
-  if (event.target == searchModal) {
-    searchModal.style.display = "none";
+  if (event.target == search.searchModal) {
+    search.searchModal.style.display = "none";
   }
 };
 
-function displaySearchLoader() {
-  document.querySelector(".search-item-loader").style.display = "none";
+function hideSearchLoader() {
+  search.searchLoader.style.display = "none";
 }
 
-let searchedItems = document.querySelector("#searched-items")
-
+search.searchBarInput.addEventListener("input", searchItem);
 function searchItem() {
-  displaySearchLoader()
+  // To display the search loader when you input something
+  search.searchLoader.style.display = "block";
+
   fetch(shopping_api)
     .then((res) => res.json())
     .then((fetchedData) => {
-
+      
       // declare variables
-      let input, filter, txtValue;
-
+      let filter, txtValue;
+      
+      filter = search.searchBarInput.value;
+      
       // Targeting the search input and its value
-      input = document.getElementById("search-bar");
-      filter = input.value;
-
+      
       // Checking if its empty
-      if (filter === "") {
-        searchedItems.innerHTML = ``;
-
-      } else { // If its not empty do the following
-        //...............
+      if (search.filter === "") {
+        search.searchedItems.innerText = ``;
+      } else {
+        // If its not empty do the following
         let searchedFeedback = "";
-
-        for (let i = 0; i < fetchedData.length; i++) { // looping through the fetched item
+        
+        for (let i = 0; i < fetchedData.length; i++) {
+          // looping through the fetched item
           txtValue = fetchedData[i].title;
+          let slicedName = txtValue.slice(0, 10);
 
-          if (txtValue.indexOf(filter) > -1) { // Comparing the search input value and the Array of Items
+          if (txtValue.indexOf(search.filter) > -1) {
+            // Comparing the search input value and the Array of Items
             searchedFeedback += `
           <a href="#" class="searched-items-flex-items">
             <img src="${fetchedData[i].image}" alt="" class="searched-items-img">
-            <p class="searched-items-title-name">${fetchedData[i].title}</p>
+            <p class="searched-items-title-name">${slicedName}</p>
             <p class="searched-items-price">${fetchedData[i].price}</p>
             <p class="searched-items-discount-price"></p>
           </a>
           `;
-            searchedItems.innerHTML = searchedFeedback;
+            search.searchedItems.innerHTML = searchedFeedback;
           }
         }
+        hideSearchLoader()
       }
     })
     .catch((err) => console.log(err));
 }
 
 // Adding an OnFormChange event listener to the search bar
-document.getElementById("search-bar").addEventListener("input", onChangeSearch);
+search.searchBarInput.addEventListener("input", onChangeSearch);
 function onChangeSearch() {
-  document.querySelector(
-    "#searched-items"
-  ).innerHTML = `<div class="search-item-loader"></div>`;
+  if (search.searchBarInput.value === "") {
+    hideSearchLoader()
+  }
 }

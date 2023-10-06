@@ -21,7 +21,7 @@ body {
     margin: 0 auto;
     font-family: $defaultfont;
 
-    #search-overlay{
+    #search-overlay {
         display: none;
         background-color: #0000007f;
         width: 100vw;
@@ -32,40 +32,41 @@ body {
         z-index: 20;
         padding: 20px;
 
-       #search-overlay-items{
-        form {
-            position: relative;
-            display: flex;
-            justify-content: center;
-            padding: 50px 0;
-
-            #search-bar {
-                width: 400px;
-                height: 36px;
-                outline: 0;
-                border: 0;
-                padding: 0 10px;
-                border-radius: 5px;
-                font-family: $defaultfont;
-                font-size: 18px;
-            }
-            #search-close{
+        #search-overlay-items {
+            form {
+                position: relative;
                 display: flex;
-                align-items: center;
-                gap: 5px;
-                height: 36px;
-                // width: 36px;
-                border: 0;
-                padding: 0 10px;
-                border-radius: 5px;
-                font-size: 20px;
-                background-color: rgb(183, 6, 6);
-                color: white;
+                justify-content: center;
+                padding: 50px 0;
+
+                #search-bar {
+                    width: 400px;
+                    height: 36px;
+                    outline: 0;
+                    border: 0;
+                    padding: 0 10px;
+                    border-radius: 5px;
+                    font-family: $defaultfont;
+                    font-size: 18px;
+                }
+
+                #search-close {
+                    display: flex;
+                    align-items: center;
+                    gap: 5px;
+                    height: 36px;
+                    // width: 36px;
+                    border: 0;
+                    padding: 0 10px;
+                    border-radius: 5px;
+                    font-size: 20px;
+                    background-color: rgb(183, 6, 6);
+                    color: white;
+                }
+
             }
 
-        }
-
-        #searched-items{
+            #searched-items {
                 display: flex;
                 justify-content: space-evenly;
                 flex-wrap: wrap;
@@ -73,25 +74,40 @@ body {
 
                 // loader
                 .search-item-loader {
-                    width:45px;
-                    height:60px;
-                    --c:linear-gradient(#ffffff 0 0);
-                    background: 
-                      var(--c) 0%   100%,
-                      var(--c) 50%  100%,
-                      var(--c) 100% 100%;
-                    background-size:9px 65%;
+                    width: 45px;
+                    height: 60px;
+                    --c: linear-gradient(#ffffff 0 0);
+                    background:
+                        var(--c) 0% 100%,
+                        var(--c) 50% 100%,
+                        var(--c) 100% 100%;
+                    background-size: 9px 65%;
                     background-repeat: no-repeat;
-                    animation:b8 1s infinite linear;
-                  }
-                  @keyframes b8 {
-                      16.67% {background-position:0% 0%  ,50% 100%,100% 100%}
-                      33.33% {background-position:0% 0%  ,50% 0%  ,100% 100%}
-                      50%    {background-position:0% 0%  ,50% 0%  ,100% 0%  }
-                      66.67% {background-position:0% 100%,50% 0%  ,100% 0%  }
-                      83.33% {background-position:0% 100%,50% 100%,100% 0%  }
-                  
-                  }
+                    animation: b8 1s infinite linear;
+                }
+
+                @keyframes b8 {
+                    16.67% {
+                        background-position: 0% 0%, 50% 100%, 100% 100%
+                    }
+
+                    33.33% {
+                        background-position: 0% 0%, 50% 0%, 100% 100%
+                    }
+
+                    50% {
+                        background-position: 0% 0%, 50% 0%, 100% 0%
+                    }
+
+                    66.67% {
+                        background-position: 0% 100%, 50% 0%, 100% 0%
+                    }
+
+                    83.33% {
+                        background-position: 0% 100%, 50% 100%, 100% 0%
+                    }
+
+                }
 
                 .searched-items-flex-items {
                     width: 200px;
@@ -126,10 +142,10 @@ body {
                         box-shadow: 0 0 10px black;
                         transition: 0.3s;
                     }
-                
+
+                }
             }
         }
-       }
     }
 
 
@@ -266,7 +282,7 @@ body {
                 }
             }
 
-            
+
             #search-icon {
                 display: grid;
                 place-items: center;
@@ -478,6 +494,7 @@ body {
 
                 .shopping-group1-items {
                     // border: 1px solid red;
+                    cursor: pointer;
                     flex-shrink: 0;
                     border-radius: 10px;
                     width: 289px;
@@ -488,8 +505,11 @@ body {
                     text-align: center;
                     display: flex;
                     flex-direction: column;
+                    align-items: center;
                     position: relative;
                     z-index: -1;
+                    text-decoration: none;
+                    color: $lightmodefont;
 
                     button {
                         color: $darkmodefont;
@@ -512,7 +532,7 @@ body {
                         margin: 18px 0;
                     }
 
-                    a {
+                    .addtocart-btn {
                         text-decoration: none;
                         // width: 170px;
                         height: 46px;
@@ -520,6 +540,7 @@ body {
                         display: inline-block;
                         padding: 10px 50px;
                         color: $lightmodefont;
+
 
                         &:hover {
                             background-color: rgb(183, 6, 6);
@@ -637,10 +658,10 @@ body {
 @media screen and (max-width: 780px) {
     body {
 
-        #search-overlay{
-    
+        #search-overlay {
+
             form {
-    
+
                 #search-bar {
                     width: 80%;
                 }
@@ -685,7 +706,18 @@ body {
 
             nav {
                 span {
-                    display: none;
+                    // display: none;
+
+                    #cart {
+                        display: flex;
+
+                        p{
+                            display: none;
+                        }
+                    }
+                    #login{
+                        display: none;
+                    }
 
                 }
 
@@ -758,7 +790,7 @@ body {
                 .top-selling-items-flex-container {
                     display: flex;
                     gap: 10px;
-                    overflow-x: scroll;
+                    // overflow-x: scroll;
 
                     .top-selling-items-flex-items {
                         width: 200px;
@@ -796,7 +828,7 @@ body {
             }
 
             .shopping-sec {
-                padding: 0 20px;
+                padding: 0 10px;
 
                 span {
                     margin: 34px 0;
@@ -805,12 +837,13 @@ body {
                 .shopping-group1 {
                     display: grid;
                     grid-template-columns: auto auto;
-                    justify-content: space-between;
+                    justify-content: center;
 
                     .shopping-group1-items {
                         // border: 1px solid red;
+                        align-items: center;
                         width: 180px;
-                        height: 298px;
+                        height: 278px;
                         margin: 0 5px;
                         margin-bottom: 20px;
                         background-color: #d6d4d4;
@@ -819,7 +852,7 @@ body {
                         position: relative;
                         z-index: -1;
 
-                        .fa-heart{
+                        .fa-heart {
                             border: 2px solid rgb(183, 6, 6);
                         }
 
@@ -832,20 +865,19 @@ body {
                             font-size: 16px;
                         }
 
-                        a {
+                        .addtocart-btn {
                             text-decoration: none;
-                            // width: 170px;
-                            height: 26px;
-                            border: 1px solid black;
-                            display: flex;
-                            align-items: center;
-                            justify-content: center;
-                            padding: 10px 25px;
+                            width: 90%;
+                            height: 36px;
+                            padding: 10px 35px;
                             color: black;
                             position: absolute;
-                            bottom: 5px;
-                            left: 25%;
-
+                            bottom: 20px;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            // left: 0;
+                            // right: ;
 
                         }
 
@@ -862,4 +894,3 @@ body {
 
     }
 }
-
