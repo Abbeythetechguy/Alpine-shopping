@@ -850,6 +850,8 @@ body {
                 }
 
                 .shopping-group1 {
+                    display: grid;
+                    grid-template-columns: auto auto;
                     gap: 2px;
                     justify-content: center;
 

@@ -625,6 +625,8 @@ body main .shopping-sec .shopping-group1 .shopping-group1-loading {
     margin: 34px 0;
   }
   body main .shopping-sec .shopping-group1 {
+    display: grid;
+    grid-template-columns: auto auto;
     gap: 2px;
     justify-content: center;
   }

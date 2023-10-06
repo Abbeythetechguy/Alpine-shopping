@@ -60,21 +60,8 @@
                 <div class="custom-loader"></div>
             </div>
 
-            <div class="hero-sec-left">
-                <span>
-                    <h1 id="hero-left_display-title">${oneFetchedData.title}</h1>
-                    <p id="hero-sec-left-description">${description}</p>
-                    <div>
-                      <p>Price: $<b id="main-price">${mainPrice}</b> </p>
-                      <p>Best Offer: $<b id="best-offer">${mainPrice - 90}</b></p>
-                    </div>
-                </span>
-                <a href="" id="order-btn">Compare</a>
-                 <button><img src="./Alpine images/arrow-down.png" alt="">View Product</button>
-            </div>
-            <div class="hero-sec-right">
-                <img src="./Alpine images/eyeglass.png" alt="">
-            </div>
+            <div class="hero-sec-left"> </div>
+            <div class="hero-sec-right"></div>
         </section>
         <section class="top-selling-items">
             <h1>Top selling items</h1>
@@ -100,24 +87,6 @@
                 <div class="shopping-group1-loading"></div>
                 <div class="shopping-group1-loading"></div>
                 <div class="shopping-group1-loading"></div>
-                <div class="shopping-group1-items">
-                    <button class="liked-btn"><i class='fa-solid fa-heart fa-2x'></i></button>
-                    <a href="">
-                        <img src=${singleData.image} alt="" class="shopping-img">
-                        <h2>${slicedName}</h2>
-                        <p class="price">$ ${singleData.price}</p>
-                    </a>
-                    <button class='addtocart-btn'>Add to Cart</button>
-                </div>
-                <div href="" class="shopping-group1-items">
-                    <button class="liked-btn"><i class='fa-solid fa-heart fa-2x'></i></button>
-                    <a href="">
-                        <img src=${singleData.image} alt="" class="shopping-img">
-                        <h2>${slicedName}</h2>
-                        <p class="price">$ ${singleData.price}</p>
-                    </a>
-                    <button class='addtocart-btn'>Add to Cart</button>
-                </div>
             </div>
         </section>
     </main>

@@ -146,7 +146,7 @@ fetch(shopping_api)
         slicedName += "...";
         data += `
         <div class="shopping-group1-items">
-            <button id="liked-btn"><i class='fa-solid fa-heart fa-2x'></i></button>
+            <button class="liked-btn"><i class='fa-solid fa-heart fa-2x'></i></button>
             <a href="">
                 <img src=${singleData.image} alt="" class="shopping-img">
                 <h2>${slicedName}</h2>
@@ -159,7 +159,7 @@ fetch(shopping_api)
       } else {
         data += `
         <div class="shopping-group1-items">
-            <button id="liked-btn"><i class='fa-solid fa-heart fa-2x'></i></button>
+            <button class="liked-btn"><i class='fa-solid fa-heart fa-2x'></i></button>
             <a href="">
                 <img src=${singleData.image} alt="" class="shopping-img">
                 <h2>${titleName}</h2>
