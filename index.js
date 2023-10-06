@@ -152,7 +152,7 @@ fetch(shopping_api)
                 <h2>${slicedName}</h2>
                 <p class="price">$ ${singleData.price}</p>
             </a>
-            <button class='addtocart-btn'>Add to Cart</button>
+            <button onclick='addToCart()' class='addtocart-btn'>Add to Cart</button>
         </div>
 
         `;
@@ -165,7 +165,7 @@ fetch(shopping_api)
                 <h2>${titleName}</h2>
                 <p class="price">$ ${singleData.price}</p>
             </a>
-            <button class='addtocart-btn'>Add to Cart</button>
+            <button onclick='addToCart()' class='addtocart-btn'>Add to Cart</button>
         </div>
   
         `;
@@ -279,21 +279,10 @@ function onChangeSearch() {
 // Liked Items
 
 let likedBtn = document.querySelectorAll(".addtocart-btn");
-console.log(likedBtn)
-
-for (let i = 0; i < likedBtn.length; i++) {
-  likedBtn[i].addEventListener("click", addToCart);
-  
-}
-
 
 function addToCart() {
-  let cart = []
-  let count = 0;
-  if (count <= 10) {
-    count ++
-    count+= count
-    cart.push(count)
-  console.log(cart)
-} 
+  console.log('clicked')
+  let div = document.createElement('div')
+  div.innerText = 'Welcome'
+  document.querySelector('.shopping-sec').appendChild(div)
 }
