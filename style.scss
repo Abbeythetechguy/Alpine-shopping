@@ -550,9 +550,9 @@ body {
                         text-decoration: none;
                         width: 80%;
                         height: 46px;
-                        border: 1px solid black;
+                        border: 0;
                         padding: 10px 0;
-                        color: $lightmodefont;
+                        // color: $lightmodefont;
                         background: transparent;
                         display: flex;
                         justify-content: center;
@@ -560,6 +560,8 @@ body {
                         font-family: $defaultfont;
                         font-size: 20px;
                         border-radius: 5px;
+                        background: rgb(183, 6, 6);
+                        color: white;
 
 
                         &:hover {
@@ -896,7 +898,6 @@ body {
                             width: 90%;
                             height: 36px;
                             padding: 10px 35px;
-                            color: black;
                             position: absolute;
                             bottom: 20px;
                             font-size: 16px;

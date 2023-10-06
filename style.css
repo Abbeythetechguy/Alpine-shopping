@@ -435,9 +435,8 @@ body main .shopping-sec .shopping-group1 .shopping-group1-items .addtocart-btn, 
   text-decoration: none;
   width: 80%;
   height: 46px;
-  border: 1px solid black;
+  border: 0;
   padding: 10px 0;
-  color: black;
   background: transparent;
   display: flex;
   justify-content: center;
@@ -445,6 +444,8 @@ body main .shopping-sec .shopping-group1 .shopping-group1-items .addtocart-btn, 
   font-family: "Crimson Text", Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
   font-size: 20px;
   border-radius: 5px;
+  background: rgb(183, 6, 6);
+  color: white;
 }
 body main .shopping-sec .shopping-group1 .shopping-group1-items .addtocart-btn:hover, body main .shopping-sec .shopping-group1 .shopping-group1-loading .addtocart-btn:hover {
   transition: 0.3s ease-in;
@@ -663,7 +664,6 @@ body main .shopping-sec .shopping-group1 .shopping-group1-loading {
     width: 90%;
     height: 36px;
     padding: 10px 35px;
-    color: black;
     position: absolute;
     bottom: 20px;
     font-size: 16px;
