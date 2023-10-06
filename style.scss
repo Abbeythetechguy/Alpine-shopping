@@ -803,12 +803,13 @@ body {
                 }
 
                 .shopping-group1 {
-                    display: flex;
+                    display: grid;
+                    grid-template-columns: auto auto;
 
                     .shopping-group1-items {
                         // border: 1px solid red;
                         width: 180px;
-                        height: 248px;
+                        height: 298px;
                         margin: 0 20px;
                         margin-bottom: 20px;
                         background-color: #d6d4d4;

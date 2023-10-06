@@ -597,11 +597,12 @@ body main .shopping-sec .shopping-group1 .shopping-group1-loading {
     margin: 34px 0;
   }
   body main .shopping-sec .shopping-group1 {
-    display: flex;
+    display: grid;
+    grid-template-columns: auto auto;
   }
   body main .shopping-sec .shopping-group1 .shopping-group1-items, body main .shopping-sec .shopping-group1 .shopping-group1-loading {
     width: 180px;
-    height: 248px;
+    height: 298px;
     margin: 0 20px;
     margin-bottom: 20px;
     background-color: #d6d4d4;
