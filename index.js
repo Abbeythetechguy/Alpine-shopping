@@ -36,6 +36,10 @@ function hideLoader() {
 // this is to generate random item for the hero section
 let randomNumber = Math.floor(Math.random() * 20);
 
+function heroSecAnime(){
+
+}
+
 fetch(`https://fakestoreapi.com/products/${randomNumber}`)
   .then((res) => res.json())
   .then((oneFetchedData) => {
@@ -142,22 +146,26 @@ fetch(shopping_api)
         slicedName += "...";
         data += `
         <div class="shopping-group1-items">
-          <button><i class='fa-solid fa-heart fa-2x'></i></button>
-          <img src=${singleData.image} alt="" class="shopping-img">
-          <h2>${slicedName}</h2>
-          <p class="price">$ ${singleData.price}</p>
-          <a href="#" class='addtocart-btn'>Add to Cart</a>
+            <button id="liked-btn"><i class='fa-solid fa-heart fa-2x'></i></button>
+            <a href="">
+                <img src=${singleData.image} alt="" class="shopping-img">
+                <h2>${slicedName}</h2>
+                <p class="price">$ ${singleData.price}</p>
+            </a>
+            <button class='addtocart-btn'>Add to Cart</button>
         </div>
-  
+
         `;
       } else {
         data += `
         <div class="shopping-group1-items">
-          <button><i class='fa-solid fa-heart fa-2x'></i></button>
-          <img src=${singleData.image} alt="" class="shopping-img">
-          <h2>${titleName}</h2>
-          <p class="price">$ ${singleData.price}</p>
-          <a href="#" class='addtocart-btn'>Add to Cart</a>
+            <button id="liked-btn"><i class='fa-solid fa-heart fa-2x'></i></button>
+            <a href="">
+                <img src=${singleData.image} alt="" class="shopping-img">
+                <h2>${titleName}</h2>
+                <p class="price">$ ${singleData.price}</p>
+            </a>
+            <button class='addtocart-btn'>Add to Cart</button>
         </div>
   
         `;
@@ -207,7 +215,6 @@ window.onclick = function (event) {
     search.searchModal.style.display = "none";
   }
 };
-
 function hideSearchLoader() {
   search.searchLoader.style.display = "none";
 }
@@ -220,40 +227,41 @@ function searchItem() {
   fetch(shopping_api)
     .then((res) => res.json())
     .then((fetchedData) => {
-      
       // declare variables
       let filter, txtValue;
-      
+
       filter = search.searchBarInput.value;
-      
+
       // Targeting the search input and its value
-      
+
       // Checking if its empty
-      if (search.filter === "") {
+      if (filter === "") {
         search.searchedItems.innerText = ``;
       } else {
         // If its not empty do the following
         let searchedFeedback = "";
-        
-        for (let i = 0; i < fetchedData.length; i++) {
+
+        fetchedData.map((singleData) => {
           // looping through the fetched item
-          txtValue = fetchedData[i].title;
+          txtValue = singleData.title;
           let slicedName = txtValue.slice(0, 10);
 
-          if (txtValue.indexOf(search.filter) > -1) {
+          if (txtValue.indexOf(filter) > -1) {
             // Comparing the search input value and the Array of Items
             searchedFeedback += `
           <a href="#" class="searched-items-flex-items">
-            <img src="${fetchedData[i].image}" alt="" class="searched-items-img">
+            <img src="${singleData.image}" alt="" class="searched-items-img">
             <p class="searched-items-title-name">${slicedName}</p>
-            <p class="searched-items-price">${fetchedData[i].price}</p>
-            <p class="searched-items-discount-price"></p>
+            <p class="searched-items-price">${singleData.price}</p>
+            <p class="searched-items-discount-price">${
+              singleData.price - 10
+            }</p>
           </a>
           `;
             search.searchedItems.innerHTML = searchedFeedback;
           }
-        }
-        hideSearchLoader()
+        });
+        hideSearchLoader();
       }
     })
     .catch((err) => console.log(err));
@@ -263,6 +271,29 @@ function searchItem() {
 search.searchBarInput.addEventListener("input", onChangeSearch);
 function onChangeSearch() {
   if (search.searchBarInput.value === "") {
-    hideSearchLoader()
+    hideSearchLoader();
   }
+}
+
+//.....................................................
+// Liked Items
+
+let likedBtn = document.querySelectorAll(".addtocart-btn");
+console.log(likedBtn)
+
+for (let i = 0; i < likedBtn.length; i++) {
+  likedBtn[i].addEventListener("click", addToCart);
+  
+}
+
+
+function addToCart() {
+  let cart = []
+  let count = 0;
+  if (count <= 10) {
+    count ++
+    count+= count
+    cart.push(count)
+  console.log(cart)
+} 
 }

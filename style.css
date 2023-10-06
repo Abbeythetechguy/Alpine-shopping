@@ -14,20 +14,23 @@ body #search-overlay {
   display: none;
   background-color: rgba(0, 0, 0, 0.4980392157);
   width: 100vw;
+  height: 100vh;
   position: fixed;
   top: 0;
   left: 0;
   z-index: 20;
   padding: 20px;
 }
-body #search-overlay #search-overlay-items form {
+body #search-overlay form {
   position: relative;
   display: flex;
   justify-content: center;
-  padding: 50px 0;
+  gap: 10px;
+  margin: 0 auto;
+  width: 70%;
 }
-body #search-overlay #search-overlay-items form #search-bar {
-  width: 400px;
+body #search-overlay form #search-bar {
+  width: 70%;
   height: 36px;
   outline: 0;
   border: 0;
@@ -36,9 +39,10 @@ body #search-overlay #search-overlay-items form #search-bar {
   font-family: "Crimson Text", Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
   font-size: 18px;
 }
-body #search-overlay #search-overlay-items form #search-close {
+body #search-overlay form #search-close {
   display: flex;
   align-items: center;
+  cursor: pointer;
   gap: 5px;
   height: 36px;
   border: 0;
@@ -48,13 +52,15 @@ body #search-overlay #search-overlay-items form #search-close {
   background-color: rgb(183, 6, 6);
   color: white;
 }
-body #search-overlay #search-overlay-items #searched-items {
+body #search-overlay #searched-items {
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
+  width: 70%;
   gap: 10px;
+  margin: 20px auto;
 }
-body #search-overlay #search-overlay-items #searched-items .search-item-loader {
+body #search-overlay #searched-items .search-item-loader {
   width: 45px;
   height: 60px;
   --c: linear-gradient(#ffffff 0 0);
@@ -80,7 +86,7 @@ body #search-overlay #search-overlay-items #searched-items .search-item-loader {
     background-position: 0% 100%, 50% 100%, 100% 0%;
   }
 }
-body #search-overlay #search-overlay-items #searched-items .searched-items-flex-items {
+body #search-overlay #searched-items .searched-items-flex-items {
   width: 200px;
   height: 270px;
   background-color: white;
@@ -90,22 +96,22 @@ body #search-overlay #search-overlay-items #searched-items .searched-items-flex-
   text-decoration: none;
   color: black;
 }
-body #search-overlay #search-overlay-items #searched-items .searched-items-flex-items .searched-items-img {
+body #search-overlay #searched-items .searched-items-flex-items .searched-items-img {
   width: 100%;
   height: 180px;
 }
-body #search-overlay #search-overlay-items #searched-items .searched-items-flex-items .searched-items-title-name {
+body #search-overlay #searched-items .searched-items-flex-items .searched-items-title-name {
   font-size: 18px;
 }
-body #search-overlay #search-overlay-items #searched-items .searched-items-flex-items .searched-items-price {
+body #search-overlay #searched-items .searched-items-flex-items .searched-items-price {
   font-size: 18px;
   font-weight: bold;
 }
-body #search-overlay #search-overlay-items #searched-items .searched-items-flex-items .searched-items-discount-price {
+body #search-overlay #searched-items .searched-items-flex-items .searched-items-discount-price {
   text-decoration: line-through;
   color: #707070;
 }
-body #search-overlay #search-overlay-items #searched-items .searched-items-flex-items:hover {
+body #search-overlay #searched-items .searched-items-flex-items:hover {
   box-shadow: 0 0 10px black;
   transition: 0.3s;
 }
@@ -390,16 +396,15 @@ body main .shopping-sec .shopping-group1 .shopping-group1-items, body main .shop
   margin-bottom: 32px;
   background-color: #d6d4d4;
   padding: 34px 42px;
-  text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
   position: relative;
-  z-index: -1;
   text-decoration: none;
   color: black;
+  text-align: center;
 }
-body main .shopping-sec .shopping-group1 .shopping-group1-items button, body main .shopping-sec .shopping-group1 .shopping-group1-loading button {
+body main .shopping-sec .shopping-group1 .shopping-group1-items .liked-btn, body main .shopping-sec .shopping-group1 .shopping-group1-loading .liked-btn {
   color: white;
   cursor: pointer;
   position: absolute;
@@ -408,30 +413,44 @@ body main .shopping-sec .shopping-group1 .shopping-group1-items button, body mai
   top: 10px;
   right: 20px;
 }
-body main .shopping-sec .shopping-group1 .shopping-group1-items h2, body main .shopping-sec .shopping-group1 .shopping-group1-loading h2 {
+body main .shopping-sec .shopping-group1 .shopping-group1-items a, body main .shopping-sec .shopping-group1 .shopping-group1-loading a {
+  text-decoration: none;
+  color: black;
+}
+body main .shopping-sec .shopping-group1 .shopping-group1-items a h2, body main .shopping-sec .shopping-group1 .shopping-group1-loading a h2 {
   font-size: 17px;
 }
-body main .shopping-sec .shopping-group1 .shopping-group1-items .price, body main .shopping-sec .shopping-group1 .shopping-group1-loading .price {
+body main .shopping-sec .shopping-group1 .shopping-group1-items a .price, body main .shopping-sec .shopping-group1 .shopping-group1-loading a .price {
   font-size: 25px;
   font-weight: bold;
   color: rgb(183, 6, 6);
   margin: 18px 0;
 }
-body main .shopping-sec .shopping-group1 .shopping-group1-items .addtocart-btn, body main .shopping-sec .shopping-group1 .shopping-group1-loading .addtocart-btn {
-  text-decoration: none;
-  height: 46px;
-  border: 1px solid black;
-  display: inline-block;
-  padding: 10px 50px;
-  color: black;
-}
-body main .shopping-sec .shopping-group1 .shopping-group1-items .addtocart-btn:hover, body main .shopping-sec .shopping-group1 .shopping-group1-loading .addtocart-btn:hover {
-  background-color: rgb(183, 6, 6);
-}
-body main .shopping-sec .shopping-group1 .shopping-group1-items .shopping-img, body main .shopping-sec .shopping-group1 .shopping-group1-loading .shopping-img {
+body main .shopping-sec .shopping-group1 .shopping-group1-items a .shopping-img, body main .shopping-sec .shopping-group1 .shopping-group1-loading a .shopping-img {
   width: 204px;
   height: 204px;
   margin-bottom: 25px;
+}
+body main .shopping-sec .shopping-group1 .shopping-group1-items .addtocart-btn, body main .shopping-sec .shopping-group1 .shopping-group1-loading .addtocart-btn {
+  text-decoration: none;
+  width: 80%;
+  height: 46px;
+  border: 1px solid black;
+  padding: 10px 0;
+  color: black;
+  background: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Crimson Text", Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  font-size: 20px;
+  border-radius: 5px;
+}
+body main .shopping-sec .shopping-group1 .shopping-group1-items .addtocart-btn:hover, body main .shopping-sec .shopping-group1 .shopping-group1-loading .addtocart-btn:hover {
+  transition: 0.3s ease-in;
+  background-color: rgb(183, 6, 6);
+  color: white;
+  border: 0;
 }
 body main .shopping-sec .shopping-group1 .shopping-group1-loading {
   animation: s2 2s infinite linear;
@@ -561,7 +580,7 @@ body main .shopping-sec .shopping-group1 .shopping-group1-loading {
   }
   body main .hero-sec .hero-sec-right img {
     margin: 0 auto;
-    width: 70%;
+    width: 80%;
     display: block;
   }
   body main .top-selling-items {
@@ -606,13 +625,12 @@ body main .shopping-sec .shopping-group1 .shopping-group1-loading {
     margin: 34px 0;
   }
   body main .shopping-sec .shopping-group1 {
-    display: grid;
-    grid-template-columns: auto auto;
+    gap: 2px;
     justify-content: center;
   }
   body main .shopping-sec .shopping-group1 .shopping-group1-items, body main .shopping-sec .shopping-group1 .shopping-group1-loading {
     align-items: center;
-    width: 180px;
+    width: 170px;
     height: 278px;
     margin: 0 5px;
     margin-bottom: 20px;
@@ -622,15 +640,21 @@ body main .shopping-sec .shopping-group1 .shopping-group1-loading {
     position: relative;
     z-index: -1;
   }
-  body main .shopping-sec .shopping-group1 .shopping-group1-items .fa-heart, body main .shopping-sec .shopping-group1 .shopping-group1-loading .fa-heart {
+  body main .shopping-sec .shopping-group1 .shopping-group1-items .liked-btn, body main .shopping-sec .shopping-group1 .shopping-group1-loading .liked-btn {
+    cursor: pointer;
     border: 2px solid rgb(183, 6, 6);
   }
-  body main .shopping-sec .shopping-group1 .shopping-group1-items h2, body main .shopping-sec .shopping-group1 .shopping-group1-loading h2 {
+  body main .shopping-sec .shopping-group1 .shopping-group1-items a h2, body main .shopping-sec .shopping-group1 .shopping-group1-loading a h2 {
     font-size: 17px;
   }
-  body main .shopping-sec .shopping-group1 .shopping-group1-items .price, body main .shopping-sec .shopping-group1 .shopping-group1-loading .price {
+  body main .shopping-sec .shopping-group1 .shopping-group1-items a .price, body main .shopping-sec .shopping-group1 .shopping-group1-loading a .price {
     margin: 5px 0;
     font-size: 16px;
+  }
+  body main .shopping-sec .shopping-group1 .shopping-group1-items a .shopping-img, body main .shopping-sec .shopping-group1 .shopping-group1-loading a .shopping-img {
+    width: 154px;
+    height: 150px;
+    margin-bottom: 10px;
   }
   body main .shopping-sec .shopping-group1 .shopping-group1-items .addtocart-btn, body main .shopping-sec .shopping-group1 .shopping-group1-loading .addtocart-btn {
     text-decoration: none;
@@ -640,13 +664,6 @@ body main .shopping-sec .shopping-group1 .shopping-group1-loading {
     color: black;
     position: absolute;
     bottom: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  body main .shopping-sec .shopping-group1 .shopping-group1-items .shopping-img, body main .shopping-sec .shopping-group1 .shopping-group1-loading .shopping-img {
-    width: 164px;
-    height: 150px;
-    margin-bottom: 10px;
+    font-size: 16px;
   }
 }/*# sourceMappingURL=style.css.map */
