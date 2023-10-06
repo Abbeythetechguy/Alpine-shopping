@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alpine</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <section id="search-overlay">
+        <div id="search-overlay-items">
+            <form action="" method="get">
+                <input type="search" name="search" id="search-bar" onkeyup="searchItem()" placeholder="Search">
+                <span id="search-close"><i class="fa-solid fa-close"></i>Close</span>
+            </form>
+            <div id="searched-items">
+                <div class="search-item-loader"></div>
+            </div>
+        </div>
+    </section>
+
+    <header>
+        <div class="shopping-category">
+            <ul>
+                <li><a href="" class="shopping-category-links"><i class="fa-solid fa-apple-whole"></i>Supermarket</a>
+                </li>
+                <li><a href="" class="shopping-category-links"><i class="fa-solid fa-house"></i>Home & Offices</a></li>
+                <li><a href="" class="shopping-category-links"><i class="fa-solid fa-utensils"></i>Appliances</a></li>
+                <li><a href="" class="shopping-category-links"><i class="fa-solid fa-mobile"></i>Phones & Tablets</a>
+                </li>
+                <li><a href="" class="shopping-category-links"><i class="fa-solid fa-desktop"></i>Computing</a></li>
+                <li><a href="" class="shopping-category-links"><i class="fa-solid fa-tv"></i>Electronics</a></li>
+                <li><a href="" class="shopping-category-links"><i class="fa-solid fa-shirt"></i>Fashion</a></li>
+                <li><a href="" class="shopping-category-links"><i class="fa-solid fa-baby"></i>Baby Products</a></li>
+                <li><a href="" class="shopping-category-links"><i class="fa-solid fa-gamepad"></i>Gaming</a></li>
+            </ul>
+        </div>
+        <div class="hamburger-menu">
+            <span class="hamburger"></span>
+        </div>
+        <h1>AL<b style="color:rgb(183, 6, 6);">PIN</b>E</h1>
+        <nav>
+            <span id="search-icon"><i class="fa-solid fa-magnifying-glass"></i></span>
+            <span>
+                <a href="#">Cart <img src="./Alpine images/Vector.png" alt=""></a>
+                <a href="">Login</a>
+            </span>
+        </nav>
+    </header>
+    <main>
+        <section class="hero-sec">
+            <div role="status" id="loading">
+                <div class="custom-loader"></div>
+            </div>
+
+            <div class="hero-sec-left"></div>
+            <div class="hero-sec-right"></div>
+        </section>
+        <section class="top-selling-items">
+            <h1>Top selling items</h1>
+            <div class="top-selling-items-flex-container">
+                <a href="#" class="top-selling-items-flex-items">
+                    <img src="" alt="" class="top-selling-items-img">
+                    <p class="top-selling-items-title-name"></p>
+                    <p class="top-selling-items-price"></p>
+                    <p class="top-selling-items-discount-price"></p>
+                </a>
+            </div>
+        </section>
+        <section class="shopping-sec">
+            <span>
+                <a href="" class="shopping-category-links">Fashion</a>
+                <a href="" class="shopping-category-links category-snr">Travel</a>
+                <a href="" class="shopping-category-links">Everyday</a>
+            </span>
+            <div class="shopping-group1">
+                <div class="shopping-group1-loading"></div>
+                <div class="shopping-group1-loading"></div>
+                <div class="shopping-group1-loading"></div>
+                <div class="shopping-group1-loading"></div>
+                <div class="shopping-group1-loading"></div>
+                <div class="shopping-group1-loading"></div>
+            </div>
+        </section>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat libero quibusdam ut aliquid, molestiae doloremque ea reprehenderit reiciendis ad quia, cum culpa laboriosam modi recusandae est aperiam asperiores nobis similique laudantium sint? Provident rem quas ducimus perspiciatis voluptatum ipsam dignissimos ex accusamus quod et. Officiis soluta a ad molestias laborum?
+    </main>
+
+    <script src="index.js"></script>
+</body>
+
+</html>
