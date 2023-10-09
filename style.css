@@ -327,6 +327,7 @@ body main .top-selling-items {
   border-radius: 10px;
   background-color: #d6d4d4;
   padding: 20px;
+  overflow-x: scroll;
 }
 body main .top-selling-items .top-selling-items-flex-container {
   display: flex;

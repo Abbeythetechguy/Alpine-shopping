@@ -36,9 +36,7 @@ function hideLoader() {
 // this is to generate random item for the hero section
 let randomNumber = Math.floor(Math.random() * 20);
 
-function heroSecAnime(){
-
-}
+function heroSecAnime() {}
 
 fetch(`https://fakestoreapi.com/products/${randomNumber}`)
   .then((res) => res.json())
@@ -84,50 +82,48 @@ const shopping_api = "https://fakestoreapi.com/products/";
 fetch(shopping_api)
   .then((res) => res.json())
   .then((fetchedData) => {
-    let topSellingItemsData = "";
+    let data = "";
 
-    fetchedData.map((singleData) => {
+    for (let i = 7; i < 15; i++) {
+      let singleData = fetchedData[i];
       let titleName = singleData.title;
+      let discountPrice = singleData.price - 10;
 
-      if (titleName.length > 25) {
+      if (titleName.length > 17) {
         let slicedName = titleName.slice(0, 15);
         slicedName += "...";
+        data += `
+        <a href="#" class="top-selling-items-flex-items">
+                <img src=${singleData.image} alt="" class="top-selling-items-img">
+                <p class="top-selling-items-title-name">${slicedName}</p>
+                <p class="top-selling-items-discount-price">$ ${discountPrice}</p>
+                <p class="price">$ ${singleData.price}</p>
+        </a>
 
-        topSellingItemsData = `
-            <a href="#" class="top-selling-items-flex-items">
-              <img src="${
-                singleData.image
-              }" alt="" class="top-selling-items-img">
-              <p class="top-selling-items-title-name">${slicedName}</p>
-              <p class="top-selling-items-price">${singleData.price - 2}</p>
-              <p class="top-selling-items-discount-price">${
-                singleData.price
-              }</p>
-            </a>
         `;
       } else {
-        topSellingItemsData = `
-            <div class="top-selling-items-flex-items">
-              <img src="${
-                singleData.image
-              }" alt="" class="top-selling-items-img">
-              <p class="top-selling-items-title-name">${titleName}</p>
-              <p class="top-selling-items-price">${singleData.price - 2}</p>
-              <p class="top-selling-items-discount-price">${
-                singleData.price
-              }</p>
-            </div>
-            `;
+        data += `
+        <a href="#" class="top-selling-items-flex-items">
+                <img src=${singleData.image} alt="" class="top-selling-items-img">
+                <p class="top-selling-items-title-name">${titleName}</p>
+                <p class="top-selling-items-discount-price">$ ${discountPrice}</p>
+                <p class="top-selling-items-price">$ ${singleData.price}</p>
+        </a>
+  
+        `;
       }
+    }
 
       // console.log(topSellingItemsData)
       document.querySelector(".top-selling-items-flex-container").innerHTML =
-        topSellingItemsData;
-    });
-  })
+        data;
+    })
   .catch((error) => console.log(error));
 
 // .................
+let itemsId = [
+  1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
+];
 
 fetch(shopping_api)
   .then((response) => {
@@ -152,7 +148,7 @@ fetch(shopping_api)
                 <h2>${slicedName}</h2>
                 <p class="price">$ ${singleData.price}</p>
             </a>
-            <button onclick='addToCart()' class='addtocart-btn'>Add to Cart</button>
+            <button onclick='addToCart(this)' class='addtocart-btn'>Add to Cart</button>
         </div>
 
         `;
@@ -165,7 +161,7 @@ fetch(shopping_api)
                 <h2>${titleName}</h2>
                 <p class="price">$ ${singleData.price}</p>
             </a>
-            <button onclick='addToCart()' class='addtocart-btn'>Add to Cart</button>
+            <button onclick='addToCart(this)' class='addtocart-btn'>Add to Cart</button>
         </div>
   
         `;
@@ -277,12 +273,23 @@ function onChangeSearch() {
 
 //.....................................................
 // Liked Items
+let cart = [];
 
 let likedBtn = document.querySelectorAll(".addtocart-btn");
-
+let clicked = false;
 function addToCart() {
-  console.log('clicked')
-  let div = document.createElement('div')
-  div.innerText = 'Welcome'
-  document.querySelector('.shopping-sec').appendChild(div)
+  console.log("clicked");
+  changesCount();
+  
+}
+let count = 1;
+function changesCount() {
+  if (clicked == true) {
+    count++;
+  } else {
+    clicked = true;
+  }
+  console.log(count);
+  cart.push(count);
+  console.log(cart);
 }
