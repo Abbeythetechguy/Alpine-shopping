@@ -29,96 +29,17 @@ function showHamb() {
 
 const loader = document.querySelector("#loading");
 
-function hideLoader() {
-  loader.style.display = "none";
-}
 
 // this is to generate random item for the hero section
 let randomNumber = Math.floor(Math.random() * 20);
 
 function heroSecAnime() {}
 
-fetch(`https://fakestoreapi.com/products/${randomNumber}`)
-  .then((res) => res.json())
-  .then((oneFetchedData) => {
-    hideLoader();
-
-    let description = oneFetchedData.description.slice(0, 200);
-
-    if (description.length > 189) {
-      description += "...";
-    } else {
-      description;
-    }
-
-    let mainPrice = Math.floor(oneFetchedData.price + 1000);
-    let data = `
-    <span>
-        <h1 id="hero-left_display-title">${oneFetchedData.title}</h1>
-        <p id="hero-sec-left-description">${description}</p>
-        <div>
-          <p>Price: $<b id="main-price">${mainPrice}</b> </p>
-          <p>Best Offer: $<b id="best-offer">${mainPrice - 90}</b></p>
-        </div>
-    </span>
-    <a href="" id="order-btn">Compare</a>
-     <button><img src="./Alpine images/arrow-down.png" alt="">View Product</button>
-    `;
-
-    document.querySelector(".hero-sec-left").innerHTML = data;
-
-    let heroRightImage = document.createElement("img");
-    heroRightImage.src = oneFetchedData.image;
-
-    document.querySelector(".hero-sec-right").appendChild(heroRightImage);
-  })
-  .catch((error) => console.log(error));
-
 //..................
 // shopping API
-const shopping_api = "https://fakestoreapi.com/products/";
+// const shopping_api = "https://chicmi.p.rapidapi.com";
+
 //..................
-
-fetch(shopping_api)
-  .then((res) => res.json())
-  .then((fetchedData) => {
-    let data = "";
-
-    for (let i = 7; i < 15; i++) {
-      let singleData = fetchedData[i];
-      let titleName = singleData.title;
-      let discountPrice = singleData.price - 10;
-
-      if (titleName.length > 17) {
-        let slicedName = titleName.slice(0, 15);
-        slicedName += "...";
-        data += `
-        <a href="#" class="top-selling-items-flex-items">
-                <img src=${singleData.image} alt="" class="top-selling-items-img">
-                <p class="top-selling-items-title-name">${slicedName}</p>
-                <p class="top-selling-items-discount-price">$ ${discountPrice}</p>
-                <p class="price">$ ${singleData.price}</p>
-        </a>
-
-        `;
-      } else {
-        data += `
-        <a href="#" class="top-selling-items-flex-items">
-                <img src=${singleData.image} alt="" class="top-selling-items-img">
-                <p class="top-selling-items-title-name">${titleName}</p>
-                <p class="top-selling-items-discount-price">$ ${discountPrice}</p>
-                <p class="top-selling-items-price">$ ${singleData.price}</p>
-        </a>
-  
-        `;
-      }
-    }
-
-      // console.log(topSellingItemsData)
-      document.querySelector(".top-selling-items-flex-container").innerHTML =
-        data;
-    })
-  .catch((error) => console.log(error));
 
 // .................
 let itemsId = [
@@ -132,43 +53,8 @@ fetch(shopping_api)
 
   .then((fetchedData) => {
     let data = "";
-
-    for (let i = 0; i < 6; i++) {
-      let singleData = fetchedData[i];
-      let titleName = singleData.title;
-
-      if (titleName.length > 17) {
-        let slicedName = titleName.slice(0, 15);
-        slicedName += "...";
-        data += `
-        <div class="shopping-group1-items">
-            <button class="liked-btn"><i class='fa-solid fa-heart fa-2x'></i></button>
-            <a href="">
-                <img src=${singleData.image} alt="" class="shopping-img">
-                <h2>${slicedName}</h2>
-                <p class="price">$ ${singleData.price}</p>
-            </a>
-            <button onclick='addToCart(this)' class='addtocart-btn'>Add to Cart</button>
-        </div>
-
-        `;
-      } else {
-        data += `
-        <div class="shopping-group1-items">
-            <button class="liked-btn"><i class='fa-solid fa-heart fa-2x'></i></button>
-            <a href="">
-                <img src=${singleData.image} alt="" class="shopping-img">
-                <h2>${titleName}</h2>
-                <p class="price">$ ${singleData.price}</p>
-            </a>
-            <button onclick='addToCart(this)' class='addtocart-btn'>Add to Cart</button>
-        </div>
-  
-        `;
-      }
-    }
-
-    document.querySelector(".shopping-group1").innerHTML = data;
+    console.log(fetchedData)
+    // document.querySelector(".shopping-group1").innerHTML = data;
   })
   .catch((error) => console.log(error));
 
@@ -278,10 +164,17 @@ let cart = [];
 let likedBtn = document.querySelectorAll(".addtocart-btn");
 let clicked = false;
 function addToCart() {
-  console.log("clicked");
   changesCount();
-  
+  document.querySelector('.add-success-popup').style.display = 'flex';
+  setInterval(() => {
+    closeSuccessAddedPopup()
+  }, 5000);
 }
+
+function closeSuccessAddedPopup(){
+  document.querySelector('.add-success-popup').style.display = 'none';
+}
+
 let count = 1;
 function changesCount() {
   if (clicked == true) {
@@ -293,3 +186,5 @@ function changesCount() {
   cart.push(count);
   console.log(cart);
 }
+
+let now = new Date()
