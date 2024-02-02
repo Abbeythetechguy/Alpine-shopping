@@ -152,6 +152,18 @@ body {
         }
     }
 
+    .undercons-popup{
+        position: fixed;
+        width: 250px;
+        padding: 50px;
+        background-color: #000;
+        color :white;
+        z-index: 20;
+        top: 45%;
+        left: 40%;
+        text-align: center;
+    }
+
     header {
         display: flex;
         justify-content: space-between;
@@ -813,6 +825,18 @@ body {
                     width: 80%;
                 }
             }
+        }
+
+        .undercons-popup{
+            position: fixed;
+            width: 250px;
+            padding: 50px;
+            background-color: #000;
+            color :white;
+            z-index: 20;
+            top: 45%;
+            left: 19%;
+            text-align: center;
         }
 
         header {

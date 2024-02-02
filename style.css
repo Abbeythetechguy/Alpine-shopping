@@ -115,6 +115,17 @@ body #search-overlay #searched-items .searched-items-flex-items:hover {
   box-shadow: 0 0 10px black;
   transition: 0.3s;
 }
+body .undercons-popup {
+  position: fixed;
+  width: 250px;
+  padding: 50px;
+  background-color: #000;
+  color: white;
+  z-index: 20;
+  top: 45%;
+  left: 40%;
+  text-align: center;
+}
 body header {
   display: flex;
   justify-content: space-between;
@@ -555,6 +566,17 @@ body #chat-on-whatsapp p {
 @media screen and (max-width: 780px) {
   body #search-overlay form #search-bar {
     width: 80%;
+  }
+  body .undercons-popup {
+    position: fixed;
+    width: 250px;
+    padding: 50px;
+    background-color: #000;
+    color: white;
+    z-index: 20;
+    top: 45%;
+    left: 19%;
+    text-align: center;
   }
   body header {
     padding: 0 10px;
